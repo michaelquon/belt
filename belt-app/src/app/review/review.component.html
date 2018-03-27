@@ -1,0 +1,22 @@
+<div id="wrapper">
+  <button (click)="writeReview(review['_id'])" type="button" class="btn btn-primary">New Review</button>
+  <button (click)="getHome()" type="button" class="btn btn-primary">Home</button>
+  <h2>Reviews for {{review['name']}}</h2>
+  <table id="eat-table" class="table table-striped">
+    <thead>
+      <tr >
+        <th scope="col">Customer</th>
+        <th scope="col">Stars</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of review.reviews">
+        <td>{{i.customer}}</td>
+        <td>{{i.stars}}</td>
+        <td>{{i.review}}</td>
+      </tr>
+  
+    </tbody>
+  </table>
+</div>

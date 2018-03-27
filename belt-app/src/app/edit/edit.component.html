@@ -1,0 +1,34 @@
+<div id="wrapper">
+  <h2>Edit a restaurant</h2>
+  <form id="form" (submit)="addEats(eatName._id)">
+    <div class="form-group">
+      <label for="name">Restaurant name:</label>
+      <p style="color: red;"><strong>{{error}}</strong></p>
+      <input [(ngModel)]="eatName.name" required minlength="3" #name="ngModel" name="name" type="text" class="form-control" id="name" autocomplete="off">
+      <div *ngIf="name.invalid && (name.touched)" class="alert alert-danger">
+          <div *ngIf="name.errors.required">
+            Restaurant name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Restaurant names must be at least 3 characters long.
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="type">Cuisine type:</label>
+      <input [(ngModel)]="eatName.cuisine" name="cuisine" required minlength="3" #cuisine="ngModel" type="text" class="form-control" id="cuisine" autocomplete="off">
+      <div *ngIf="cuisine.invalid && (cuisine.touched)" class="alert alert-danger">
+          <div *ngIf="cuisine.errors.required">
+            Cuisine is required.
+          </div>
+          <div *ngIf="cuisine.errors.minlength">
+            Cuisine must be at least 3 characters long.
+          </div>
+        </div>
+    </div>
+    <div id="btn">
+    <button type="submit" class="btn btn-primary">Edit</button>
+    <button (click)="getHome()" type="button" class="btn btn-primary">Cancel</button>
+    </div>
+  </form>
+</div>

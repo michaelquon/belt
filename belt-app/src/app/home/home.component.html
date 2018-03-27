@@ -1,0 +1,24 @@
+<div id="wrapper">
+  <button (click)="getNew()" type="button" class="btn btn-primary">New restaurant</button>
+  <table id="eat-table" class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Restaurant</th>
+        <th scope="col">Cuisine</th>
+        <th scope="col">Actions available</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of eats">
+        <td>{{i.name}}</td>
+        <td>{{i.cuisine}}</td>
+        <td>
+          <button (click)="getReview(i['_id'])" type="button" class="btn btn-primary">Read reviews</button>&nbsp;
+          <button (click)="getEdit(i['_id'])" type="button" class="btn btn-primary">Update</button>&nbsp;
+          <button (click)="deleteEat(i['_id'])" type="button" class="btn btn-primary">Delete</button>
+        </td>
+      </tr>
+  
+    </tbody>
+  </table>
+</div>
